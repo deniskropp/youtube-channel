@@ -11,7 +11,7 @@ const DEFAULT_CHANNEL_ID = "UCcHQy37BNOHoXx6QhhWKK0A"
 // Fetch channel videos
 export async function fetchChannelVideos(
   channelIdOrHandle: string = DEFAULT_CHANNEL_ID,
-  maxResults = 12,
+  maxResults = 60,
 ): Promise<YouTubeVideo[]> {
   try {
     // Determine if we're dealing with a channel handle or ID
@@ -169,7 +169,7 @@ export async function fetchVideoComments(videoId: string, maxResults = 10): Prom
 }
 
 // Fetch related videos
-export async function fetchRelatedVideos(videoId: string, maxResults = 5): Promise<YouTubeVideo[]> {
+export async function fetchRelatedVideos(videoId: string, maxResults = 15): Promise<YouTubeVideo[]> {
   try {
     const response = await fetch(
       `${BASE_URL}/search?part=snippet&relatedToVideoId=${videoId}&type=video&maxResults=${maxResults}&key=${API_KEY}`,

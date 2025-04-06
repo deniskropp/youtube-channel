@@ -101,8 +101,8 @@ async function VideoRelatedVideos({ videoId }: { videoId: string }) {
   return <RelatedVideos videos={relatedVideos} />
 }
 
-export default function VideoPage({ params }: VideoPageProps) {
-  const { id } = params
+export default async function VideoPage({ params }: VideoPageProps) {
+  const { id } = await params
 
   return (
     <div className="container mx-auto px-4 py-8">
